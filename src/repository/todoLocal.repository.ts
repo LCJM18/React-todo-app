@@ -19,4 +19,8 @@ export default class TodoLocalRepository {
     const { updateTask } = this.taskStore();
     updateTask(todoTask);
   }
+
+  public getTasks(): Todo[] {
+    return this.taskStore().tasks;
+  }
 }
