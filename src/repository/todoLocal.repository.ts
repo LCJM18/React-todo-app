@@ -1,26 +1,30 @@
 import { Todo } from '../models/todo.models';
 import taskStore from '../store/task.store';
 
-export default class TodoLocalRepository {
-  private taskStore = taskStore;
-  constructor() {}
+export default class TaskRepository {
+  private store;
 
-  public createTodoLocal(todoInfo: Todo) {
-    const { addTask } = this.taskStore();
-    addTask(todoInfo);
+  constructor() {
+    this.store = taskStore();
   }
 
-  public deleteTodoLocal(todoTask: Todo) {
-    const { deleteTask } = this.taskStore();
-    deleteTask(todoTask);
+  // Los parámetros y el tipo de retorno de estas funciones están tipados correctamente
+  createTodoLocal(newTask: Todo) {
+    if (newTask) {
+      this.store.addTask(newTask);
+    }
   }
 
-  public updateTodoLocal(todoTask: Todo) {
-    const { updateTask } = this.taskStore();
-    updateTask(todoTask);
+  deleteTodoLocal(task: Todo) {
+    this.store.deleteTask(task);
   }
 
-  public getTasks(): Todo[] {
-    return this.taskStore().tasks;
+  updateTodoLocal(task: Todo) {
+    this.store.updateTask(task);
+  }
+
+  // El tipo de retorno está tipado como un array de Todo
+  getTasks(): Todo[] {
+    return this.store.tasks;
   }
 }

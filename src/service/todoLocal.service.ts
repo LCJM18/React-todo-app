@@ -9,7 +9,9 @@ export default class TodoLocalService {
   }
 
   public createTodoLocal(todoInfo: Todo) {
-    this.todoLocalRepository.createTodoLocal(todoInfo);
+    if (todoInfo) {
+      this.todoLocalRepository.createTodoLocal(todoInfo);
+    }
   }
 
   public deleteTodoLocal(todoTask: Todo) {
@@ -21,6 +23,6 @@ export default class TodoLocalService {
   }
 
   public getTasks(): Todo[] {
-    return this.todoLocalRepository.getTasks();
+    return this.todoLocalRepository.getTasks() ?? [];
   }
 }
