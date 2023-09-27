@@ -4,7 +4,7 @@ import { Todo } from '../models/todo.models';
 interface TaskStore {
   tasks: Todo[];
   addTask: (newTask: Todo) => void;
-  deleteTask: (task: Todo) => void;
+  deleteTask: (taskId: string) => void;
   updateTask: (task: Todo) => void;
 }
 
@@ -12,9 +12,9 @@ const taskStore = create<TaskStore>((set) => ({
   tasks: [] as Todo[],
   addTask: (newTask: Todo) =>
     set((state) => ({ tasks: [...state.tasks, newTask] })),
-  deleteTask: (task: Todo) =>
+  deleteTask: (taskId: string) =>
     set((state) => ({
-      tasks: [...state.tasks.filter((item) => task.id !== item.id)],
+      tasks: [...state.tasks.filter((item) => taskId !== item.id)],
     })),
   updateTask: (task: Todo) =>
     set((state) => ({

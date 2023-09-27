@@ -15,8 +15,8 @@ export default class TaskRepository {
     }
   }
 
-  deleteTodoLocal(task: Todo) {
-    this.store.deleteTask(task);
+  deleteTodoLocal(id: string) {
+    this.store.deleteTask(id);
   }
 
   updateTodoLocal(task: Todo) {

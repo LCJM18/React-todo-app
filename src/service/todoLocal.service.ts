@@ -14,8 +14,8 @@ export default class TodoLocalService {
     }
   }
 
-  public deleteTodoLocal(todoTask: Todo) {
-    this.todoLocalRepository.deleteTodoLocal(todoTask);
+  public deleteTodoLocal(taskId: string) {
+    this.todoLocalRepository.deleteTodoLocal(taskId);
   }
 
   public updateTodoLocal(todoTask: Todo) {

@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@types/uuid": "^9.0.4",
+    "fa": "link:@types/react-icons/fa",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
     "uuid": "^9.0.1",
     "zustand": "^4.4.1"
   },
